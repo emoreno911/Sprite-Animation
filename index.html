@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Sprite Animation</title>
+
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" rel="stylesheet">
+	<style type="text/css">
+		html {
+			height: 100%;
+		}
+		body { 
+			background-color: #148ddb;
+			background-image: url(https://dl.dropbox.com/s/orogmmeqzvnymxu/mbglong.jpg);
+			background-size: cover;
+			background-repeat-y: no-repeat; 
+		}
+
+		.options { 
+			margin-top: 20px;
+			text-align: center; 
+		}
+
+		.options a,
+		.options button { 
+		    border-radius: 3px;
+		    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+		    padding: 6px 10px;
+		    background: rgba(244, 67, 54, 0.8);
+		    border: none;
+		    color: white;
+		    font-size: 20px;
+		    vertical-align: middle;
+		}
+
+		.options button:focus { 
+			background-color: #F44336; 
+		}
+
+		.options a {
+			background: #673AB7;
+		    font-size: 28px;
+		    padding: 2px 6px;
+		}
+
+		.char-wrap {
+			width: 32px;
+			position: absolute;
+		    bottom: 8%;
+		    left: 50%;
+		}
+
+		.char-svg {
+			height: 64px;
+		    width: 32px;
+		    background-image: url(https://dl.dropbox.com/s/gup87pb8b7rvmd7/sprite-color.svg);
+		    background-repeat: no-repeat;
+		    background-size: 450px 341px; /*Very Important*/
+		    animation: stand .8s steps(4) infinite;
+		    /*transform: scale(1.3);*/
+		}
+
+		.char-svg.walk {
+		    animation: walk 1s steps(6) infinite;
+		}
+
+		.char-svg.run {
+		    animation: run 1s steps(6) infinite;
+		}
+
+		.char-svg.crouch {
+		    animation: crouch 1.6s steps(2) infinite;
+		}
+
+		.char-svg.jump {
+			height: 82px;
+		    animation: jump 1s steps(6) infinite;
+		}
+
+
+		/*** Character animations ***/
+		@keyframes play {
+		  	from { background-position: -14px -84px; }
+     		to { background-position: -440px -84px; }
+		}
+
+		@keyframes stand {
+		  	from { background-position: -20px -10px; }
+     		to { background-position: -152px -10px; }
+		}
+
+		@keyframes walk {
+		  	from { background-position: -14px -84px; }
+     		to { background-position: -224px -84px; }
+		}
+
+		@keyframes run {
+		  	from { background-position: -228px -84px; }
+     		to { background-position: -436px -84px; }
+		}
+
+		@keyframes crouch {
+		  	from { background-position: -290px -10px }
+     		to { background-position: -365px -10px }
+		}
+
+		@keyframes jump {
+		  	from { background-position: -14px -220px }
+     		to { background-position: -224px -220px }
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="options">
+		<button onclick="charAction('stand')" title="Stand"><i class="zmdi zmdi-male"></i> </button>
+		<button onclick="charAction('walk')" title="Walk"><i class="zmdi zmdi-walk"></i> </button>
+		<button onclick="charAction('run')" title="Run"><i class="zmdi zmdi-run"></i> </button>
+		<button onclick="charAction('crouch')" title="Crouch"> <i class="zmdi zmdi-trending-down"></i></button>
+		<button onclick="charAction('jump')" title="Jump"><i class="zmdi zmdi-trending-up"></i> </button>
+		<a href="https://github.com/emoreno911/Sprite-Animation" target="_blank" title="Details in Github">
+			<i class="zmdi zmdi-github"></i>
+		</a>
+
+	</div>
+
+	<div class="char-wrap">
+		<div class="char-svg"></div>
+	</div>
+
+	<script type="text/javascript">
+		
+		var body = document.querySelector('body'),
+			charSVG = document.querySelector('.char-svg'),
+			position = 0, 
+			delta = 0;
+
+		function charAction(action) {
+			if(action == 'stand')
+				charSVG.className = 'char-svg';
+			else if(action == 'walk')
+				charSVG.className = 'char-svg walk';
+			else if(action == 'run')
+				charSVG.className = 'char-svg run';
+			else if(action == 'crouch')
+				charSVG.className = 'char-svg crouch';
+			else if(action == 'jump')
+				charSVG.className = 'char-svg jump';
+			else if(action == 'jumpUp')
+				charSVG.className = 'char-svg jumpUp';
+			else if(action == 'jumpDown')
+				charSVG.className = 'char-svg jumpDown';
+
+			// for background
+			if(action == 'walk' || action == 'jump')
+				delta = -2;
+			else if(action == 'run')
+				delta = -6;
+			else
+				delta = 0;
+		}
+
+		function moveBackground() {
+			position += delta;
+			body.style.backgroundPositionX = `${position}px`;
+			requestAnimationFrame(moveBackground);
+		}
+
+		requestAnimationFrame(moveBackground);
+		
+	</script>	
+
+</body>
+</html>
