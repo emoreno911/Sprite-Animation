@@ -1,6 +1,6 @@
 # Sprite Animation with CSS
 
-For some time I wanted to do some experiment with sprites of images and animations in css so a weekend that did not have many things to do I decided to get down to work with this mini-experiment. The first thing was to look for the sprite and since I am not an illustrator or anything like that I decided to consult with the old and reliable Google Images, it is varied the amount of sprites of characters that you can get there and in my case the main requirement to use an image was that Had the transparent background because I wanted to combine it with a video game background to be able to create motion effects when applying the animations but in my case the image that interests me had a solid white background.
+For some time I wanted to experiment with sprites of images and animations in css so a weekend that did not have many things to do I decided to get down to work with this mini-experiment. The first thing was to look for the sprite and since I am not an illustrator or anything like that I decided to consult with the old and reliable Google Images, it is varied the amount of sprites of characters that you can get there and in my case the main requirement to use an image was that Had the transparent background because I wanted to combine it with a video game background to be able to create motion effects when applying the animations but in my case the image that interests me had a solid white background.
 
 <img src="sprite.jpg" alt="sprite"/><br/>
 
