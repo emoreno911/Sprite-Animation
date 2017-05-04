@@ -14,4 +14,4 @@ To generate the SVG with transparency you use the [**Pen**](https://codepen.io/s
 
 When we see the sprite we notice that it contains different types of movements for the character like walking, running, jumping, etc. What we have to do is create a CSS animation for each movement, taking into account which frames we have to combine and the "movement" will be recreated by the changes that we make in the background-position property of the FrameContainer. It should be noted that the animation must have as many [**Steps**](https://css-tricks.com/using-multi-step-animations-transitions) as frames contain movement in the sprite.
 
-And lastly the movement of the background is done by moving that image on the X axis with the function of CSS translateX and the help of [**requestAnimationFrame**](https://developer.mozilla.org/en/docs/Web/API/Window/ RequestAnimationFrame)
+And lastly the movement of the background is done by moving that image on the X axis with the function of CSS translateX and the help of [**requestAnimationFrame**](https://developer.mozilla.org/en/docs/Web/API/Window/RequestAnimationFrame)
