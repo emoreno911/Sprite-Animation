@@ -1,2 +1,2 @@
 # Sprite Animation with CSS
-Writing in process. Come back at 3pm EST
+Writing in process. Please come back at 3pm EST
